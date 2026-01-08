@@ -56,8 +56,8 @@ Before running this application, ensure you have the following:
 
 Before running the application, you need to configure your API key:
 
-1. Open `main.py` in your preferred text editor or IDE
-2. Locate the line containing `'SUA_API_KEY'`
+1. Open `weather_api.py` in your preferred text editor or IDE
+2. Locate line 4 containing `'SUA_API_KEY'`
 3. Replace `'SUA_API_KEY'` with your actual OpenWeatherMap API key:
 
    ```python
@@ -78,9 +78,9 @@ To run the weather application:
 
 3. Run the application:
    ```bash
-   python main.py
+   python weather_api.py
    # or
-   python3 main.py
+   python3 weather_api.py
    ```
 
 4. Enter the city name when prompted:
@@ -111,25 +111,25 @@ The application is organized into three main modules:
 ```
 weather-api/
 │
-├── weather_api.py          # API communication module
-│   └── Handles HTTP requests to OpenWeatherMap API
+├── weather_api.py          # Main application entry point
+│   └── Handles API requests, user input, and weather display
 │
 ├── weather_processor.py    # Data processing module
 │   └── Processes and formats weather data from API responses
 │
-├── main.py                 # Main application interface
-│   └── User interaction, input handling, and output display
+├── main.py                 # Data processing module (duplicate)
+│   └── Contains process_weather_data function
 │
 └── README.md              # Project documentation
 ```
 
 ### Module Descriptions
 
-- **`weather_api.py`**: Contains the logic for making HTTP requests to the OpenWeatherMap API, including URL construction and response handling.
+- **`weather_api.py`**: The main application entry point. Contains the complete weather application logic including API communication, user input handling, data processing, and output display. This is the file you run to use the application.
 
-- **`weather_processor.py`**: Responsible for processing and formatting the raw weather data received from the API into a user-friendly format.
+- **`weather_processor.py`**: Contains a helper function `process_weather_data()` that can be used to process and format raw weather data from API responses into a user-friendly string format.
 
-- **`main.py`**: Serves as the primary user interface for the application. Manages user input, coordinates between modules, and displays the formatted weather results.
+- **`main.py`**: A duplicate of `weather_processor.py` containing the same `process_weather_data()` function for data processing and formatting.
 
 ## Troubleshooting
 
@@ -140,7 +140,7 @@ weather-api/
 - Try using the full city name or include the country code (e.g., "London,UK")
 
 **API key errors**
-- Ensure you've replaced `'SUA_API_KEY'` with your actual API key
+- Ensure you've replaced `'SUA_API_KEY'` in `weather_api.py` with your actual API key
 - Verify your API key is active (new keys may take a few minutes to activate)
 - Check that your API key hasn't exceeded the free tier limits
 
