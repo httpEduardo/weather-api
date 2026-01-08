@@ -117,7 +117,7 @@ weather-api/
 ├── weather_processor.py    # Data processing module
 │   └── Processes and formats weather data from API responses
 │
-├── main.py                 # Data processing module (duplicate)
+├── main.py                 # Alternative data processing module
 │   └── Contains process_weather_data function
 │
 └── README.md              # Project documentation
@@ -125,11 +125,11 @@ weather-api/
 
 ### Module Descriptions
 
-- **`weather_api.py`**: The main application entry point. Contains the complete weather application logic including API communication, user input handling, data processing, and output display. This is the file you run to use the application.
+- **`weather_api.py`**: The main application entry point. Contains the complete weather application with API communication, user input handling, inline data processing, and output display. This is the file you run to use the application. Note that it processes data directly rather than using the separate processing modules.
 
-- **`weather_processor.py`**: Contains a helper function `process_weather_data()` that can be used to process and format raw weather data from API responses into a user-friendly string format.
+- **`weather_processor.py`**: Contains a reusable helper function `process_weather_data()` that can process and format raw weather data from API responses into a user-friendly string format. This module provides an alternative modular approach to data processing.
 
-- **`main.py`**: A duplicate of `weather_processor.py` containing the same `process_weather_data()` function for data processing and formatting.
+- **`main.py`**: Contains the same `process_weather_data()` function as `weather_processor.py`, providing an alternative module name for the data processing functionality.
 
 ## Troubleshooting
 
